@@ -1,0 +1,6 @@
+{
+  "name": "AAS AI Governance",
+  "description": "Enterprise AI portfolio inventory, deterministic registry scoping, lifecycle governance, and value-management workspace.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

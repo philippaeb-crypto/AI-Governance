@@ -1,0 +1,100 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+:root {
+  --abbott-primary: #004f9f;
+  --abbott-primary-hover: #003d7a;
+  --abbott-secondary: #0066b2;
+  --abbott-tint: #ebf3fb;
+  --abbott-tint-border: #bfd7ee;
+}
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color: #0f172a;
+    background-color: #f8fafc;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.print-only {
+  display: none;
+}
+
+.presentation-print-deck,
+.board-brief-print-root {
+  display: none;
+}
+
+@media print {
+  @page {
+    size: landscape;
+    margin: 8mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #0f172a !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-only {
+    display: block !important;
+  }
+
+  .presentation-print-deck {
+    display: block !important;
+  }
+
+  .presentation-slide {
+    page-break-after: always;
+    break-after: page;
+    break-inside: avoid;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 1px solid #cbd5e1;
+    padding: 16px;
+    background: #ffffff;
+  }
+
+  .presentation-slide:last-child {
+    page-break-after: auto;
+    break-after: auto;
+  }
+
+  section,
+  article {
+    break-inside: avoid;
+  }
+
+  body.print-board-brief #app-shell-root {
+    display: none !important;
+  }
+
+  .board-brief-print-root {
+    display: none;
+  }
+
+  body.print-board-brief .board-brief-print-root {
+    display: block !important;
+  }
+}
+
